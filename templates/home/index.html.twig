@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Test Symfony Le Comptoir des langues
+{% endblock %}
+
+{% block body %}
+	<div
+		class="d-flex flex-row justify-content-between">
+		{# Barre de recherche à gauhe #}
+		<div class="bg-secondary text-light p-4 border co">
+			<h2>Recherche</h2>
+			{{ include('book/_search.html.twig') }}
+		</div>
+
+		{# Liste des livres à droite #}
+		<div class="container p-4">
+			<h2>Liste des livres</h2>
+			<div class="row">
+				{% for book in books %}
+					<div class="col-3 card m-3">
+						<h5 class="card-title">{{ book.title }}</h5>
+						{% if book.author != null %}
+							<h6 class="card-subtitle mb-2 text-muted">{{ book.author.name }}
+								{{ book.author.birthDate|date('d-m-Y') }}
+							</h6>
+						{% endif %}
+						{% if book.category != null %}
+							<p>{{ book.category.name }}</p>
+						{% endif %}
+						<p>{{ book.date }}</p>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+
+{% endblock %}

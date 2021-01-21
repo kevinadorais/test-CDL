@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index Livre
+{% endblock %}
+
+{% block body %}
+	<h1>Index Livre</h1>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Title</th>
+				<th>Date</th>
+				<th>Auteur</th>
+				<th>Catégorie</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for book in books %}
+				<tr>
+					<td>{{ book.id }}</td>
+					<td>{{ book.title }}</td>
+					<td>{{ book.date }}</td>
+					<td>
+						{% if book.author != null %}
+							{{ book.author.name}}
+						{% endif %}
+					</td>
+					<td>
+						{% if book.category != null %}
+							{{ book.category.name}}
+						{% endif %}
+					</td>
+					<td>
+						<a href="{{ path('book_show', {'id': book.id}) }}">Detail</a>
+						<a href="{{ path('book_edit', {'id': book.id}) }}">Modifier</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<a href="{{ path('book_new') }}">Ajouter</a>
+{% endblock %}
