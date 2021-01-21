@@ -1,11 +1,19 @@
 # test_CDL
-Test Symfony 4
+<h1>Test Symfony 4 :</h1>
+  Test Technique
 
+<h2>Installation :</h2>
 
-* fork le projet sur votre compte github
+1. Faire un 
+  <i>composer install</i>
 
-* Démarrer le projet
+2. Créer la database 
+  <i>php bin/console doctrine:database:create</i>
+
+3. Faire la migration
+  <i>php bin/console doctrine:migrations:migrate</i>
   
-* suivre les [instructions](https://github.com/lecomptoirdeslangues/test_CDL/blob/main/instruction.pdf)
-
-* Renvoyer le lien de votre travail au service de recrutement
+4. Charger les fixtures
+  <i>php bin/console doctrine:fixtures:load</i>
+  
+5. Bonne visite
